@@ -1,0 +1,113 @@
+
+<!-- Inherit from layout page -->
+{% extends "layout.html" %}
+
+<!-- Text for main block -->
+{% block mainText %}
+
+<!-- Page Content -->
+<p>Here you can change some of the parameters for the Random Forest and run it again. Can you improve on the results?</p>
+<br />
+<span><strong>Number of trees: </strong></span><span id="display-num-trees">200</span>
+<div class="slidecontainer">
+    <span>1</span>
+    <input type="range" min="1" max="500" value="200" class="slider" id="myRange" oninput=" updateResults.showNumTrees(this.value);" />
+    <span>500</span>
+</div>
+<br />
+<span>Training and testing split (how much data will you use to train and to test the model?): </span>
+<br /><br />
+<div class="slidecontainer">
+    <input type="range" min="1" max="100" value="25" class="slider" id="data-split-slider" oninput=" updateResults.dataSplit(this.value);" />
+</div>
+<br />
+<div class="data-split-container">
+    <span><strong>Test split: </strong></span><span id="display-test-split">25</span><span>%</span>
+    <div class="progress" style="width:40%;">
+        <div id="test-prog" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
+          25%
+        </div>
+    </div>
+    <br />
+    <span><strong>Training split: </strong></span><span id="display-train-split">75</span><span>%</span>
+    <div class="progress" style="width:40%;">
+      <div id="train-prog" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+          75%
+      </div>
+    </div>
+    <br /><br />
+</div>
+<p>Which features will you include or exclude from the model?</p>
+<span><strong>Features: </strong></span>
+<div class="feature-table-container">
+  <table id="feature-table" class="table">
+      <thead>
+          <tr>
+              <th>Feature name</th>
+              <th>Include/Exclude</th>
+          </tr>
+      </thead>
+      <tbody id="feature-table-body">
+          {% for feature in features %}
+          <tr>
+              <td>{{ feature }}</td>
+              <td><input type="checkbox" name="{{ feature }}" checked></td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+
+<div id="loader">
+   <img src="{{ url_for('static', filename='images/load.gif') }}" width="100px" />
+</div>
+
+<p>Click the button to run the forest then scroll down to see the results.</p>
+<button class="btn btn-success btn-lg run-forest" onclick="updateResults.rerunAnalysis();">Run forest</button>
+
+<div id="results-container">
+    <br />
+    <span><strong>results: </strong></span>
+    <table id="results-table" class="table">
+        <thead>
+            <th>Accuracy</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>F1-score</th>
+        </thead>
+        <tr id="results-row">
+            <td><div id="accuracy-report">1</div></td>
+            <td><span id="precision-report">2</span></td>
+            <td><span id="recall-report">3</span></td>
+            <td><span id="fscore-report">4</span></td>
+        </tr>
+    </table>
+
+    <span><strong>Confusion matrix: </strong>(x-axis = predicted values, y-axis = actual values)</span>
+    <br />
+    <br />
+    <table id="conf-mat">
+        <tr>
+            <td class="cm-title-left" style="text-align: right;">0 (no cancer) - </td>
+            <td id="cm-1-cell" style="text-align: center;"><span id="cm-1"></span></td>
+            <td id="cm-2-cell" style="text-align: center;"><span id="cm-2"></span></td>
+        </tr>
+        <tr>
+            <td class="cm-title-left" style="text-align: right;">1 (cancer) - </td>
+            <td id="cm-3-cell" style="text-align: center;"><span id="cm-3"></span></td>
+            <td id="cm-4-cell" style="text-align: center;"><span id="cm-4"></span></td>
+        </tr>
+        <tr>
+            <td class="cm-title-cell">&nbsp;</td>
+            <td class="cm-title-cell" style="text-align: center;">0 (no cancer)</td>
+            <td class="cm-title-cell" style="text-align: center;">1 (cancer)</td>
+        </tr>
+    </table>
+    <br />
+    <p>You can try adjusting the parameters and running the forest again. when you have finished, close the tab and return to the course.</p>
+    <br />
+    <br />
+</div>
+
+<!-- /#page-content-wrapper -->
+{% endblock %}

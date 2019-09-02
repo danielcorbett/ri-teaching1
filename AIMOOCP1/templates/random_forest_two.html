@@ -1,0 +1,81 @@
+
+<!-- Inherit from layout page -->
+{% extends "layout.html" %}
+
+<!-- Text for main block -->
+{% block mainText %}
+
+<!-- Page Content -->
+<p>
+    Here we can see the results of the Random Forest ran with <strong>200</strong> trees
+    that used <strong>25%</strong> of the data for training the model. We can see the table of results that
+    was generated below:
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Class</th>
+                <th scope="col">Precision</th>
+                <th scope="col">Recall</th>
+                <th scope="col">F1-score</th>
+                <th scope="col">Support</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0 (benign)</td>
+                <td>0.95</td>
+                <td>0.98</td>
+                <td>0.96</td>
+                <td>53</td>
+            </tr>
+            <tr>
+                <td>1 (malignant)</td>
+                <td>0.99</td>
+                <td>0.97</td>
+                <td>0.98</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td><strong>Average/total</strong></td>
+                <td><strong>0.97</strong></td>
+                <td><strong>0.97</strong></td>
+                <td><strong>0.97</strong></td>
+                <td><strong>143</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    Let's examine each of these items in turn, starting with the <strong>class</strong>. This is either 0 or 1, where 0 represents benign (no cancer) and
+    1 represents malignant (cancer). The next result, <strong>precision</strong> shows us the percentage of positive classifications that were correct, or in
+    other words, how precise were we. We can see that we were slightly more precise at correctly identifying malignant cases.
+    Precision is also sometimes called <strong>positive predictive value</strong>. <strong>Recall</strong> also called <strong>sensitivity</strong>
+    shows the proportion of correct identifications over the total amount of relevant instances or in other words the proportion of actual positives identified correctly.
+    These two values are often juxtaposed and attempts to improve one often negatively impact on the other. The <strong>F1-score</strong> gives what is
+    called the harmonic mean (an average) of the precision and recall. The <strong>support</strong> refers to the number of times a class occurs in
+    the ground truth (the correct target values). Finally the <strong>accuracy</strong> is one of the most used results of machine learning classifiers and
+    refers to the number of correctly made predictions divided by the total number of possible predictions. In this case our accuracy was <strong>97%</strong>
+</p
+<p>
+    The next graph allows us to rank order the features in terms of their importance. We could use this to reduce the number of features used
+    in our model (if they don't contribute much to the solution). Removing features is called <strong>dimensionality reduction</strong>.
+    <br /><br />
+    <img src="{{ url_for('static', filename='images/fiscores.png') }}" width="600px" />
+    <br /><br />
+    Next we have a <strong>confusion matrix</strong>. This shows us true and false positives and negatives. The top left cell shows that we correctly predicted
+    a cancer was benign (0) <strong>52</strong> times. The bottom right cell shows the number of times we correctly identified
+    the cancer was malignant (1), which was <strong>87</strong> times. The other cells show when we made an error in the prediction. So in the bottom
+    left cell we see that <strong>3</strong> times we predicted benign (0) when it was actually malignant (1). The classifier also predicted <strong>1</strong>
+    time that the cancer was malignant (1) when it was actually benign (0).
+    <br /><br />
+    <img src="{{ url_for('static', filename='images/cm.png') }}" width="500px" />
+    <br /><br />
+    Finally we have an image showing what one of the 200 trees selected at random actually looks like.
+    <br /><br />
+    <img src="{{ url_for('static', filename='images/actualtree.png') }}" width="1000px" />
+    <br /><br />
+</p>
+<p>
+    <strong>Close the browser tab when you have finished viewing the results and return to the course.</strong>
+</p>
+
+<!-- /#page-content-wrapper -->
+{% endblock %}

@@ -1,0 +1,309 @@
+
+.logo-image {
+  height: 55px;
+  padding: 5px;
+  width: auto;
+}
+
+
+
+.fade-in {
+/*
+  opacity:0;
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  */
+}
+
+.fade-item-1 {
+  animation-delay: 3s;
+}
+
+.fade-item-2 {
+  animation-delay: 9s;
+}
+
+.fade-item-3 {
+  animation-delay: 12s;
+}
+
+.fade-item-4 {
+  animation-delay: 15s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+
+  to {
+    opacity: 1;
+  }
+}
+
+.mole-images {
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.mole-image {
+  float: left;
+  width: 20%;
+  margin-left: 25px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.generic-image {
+
+  width: 30%;
+  margin-left: 25px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.next-button {
+    position:absolute;
+    border:1px solid #DE00A5;
+    background-color:#DE00A5;
+    bottom:15px;
+    right:15px;
+    z-index:9999;
+}
+
+.next-button-lps {
+    border:1px solid #DE00A5;
+    background-color:#DE00A5;
+    float:right;
+    margin:15px;
+    z-index:9999;
+}
+
+.next-button-about {
+    border:1px solid #DE00A5;
+    background-color:#DE00A5;
+}
+
+#example-block-2 {
+    display:none;
+}
+
+#example-block-3 {
+    display:none;
+}
+
+#example-block-4 {
+    display:none;
+}
+
+#example-block-5 {
+    display:none;
+}
+
+#example-block-6 {
+    display:none;
+}
+
+#example-block-7 {
+    display:none;
+}
+
+#example-block-8 {
+    display:none;
+}
+
+#example-block-9 {
+    display:none;
+}
+
+#example-block-10 {
+    display:none;
+}
+
+#example-block-11 {
+    display:none;
+}
+
+#example-block-12 {
+    display:none;
+}
+
+#example-block-13 {
+    display:none;
+}
+
+.paper-container{
+    overflow:hidden;
+    position:relative;
+    height:600px;
+}
+
+.fly-in-bottom {
+
+    position: absolute;
+    width:800px;
+    height:auto;
+    left: 20px;
+    top:0%;
+}
+.anim{
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transition : -webkit-transform 2s ease-in-out;
+    -webkit-transform: transitionY(-100%);
+}
+
+.spin-tree {
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-name: spinTree; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-delay: 2s;
+  animation-name: spinTree;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes spinTree {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(180deg); }
+}
+
+#treeAnatomy {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 500px;
+    height: 500px;
+}
+
+.small-txt {
+    font-size:0.7em;
+}
+
+#page-mask {
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:black;
+    opacity:0.5;
+}
+
+#about-box {
+    display:none;
+    position:absolute;
+    height:40%;
+    top:5%;
+}
+
+.data_tab{
+    width:90%;
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 40%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #DE00A5;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #DE00A5;
+  cursor: pointer;
+}
+
+#feature-table {
+    width:40%;
+    height:200px;
+    display:block;
+    overflow-y:auto;
+    white-space:nowrap;
+}
+
+#results-table {
+    width:40%;
+}
+
+#results-container {
+    display:none;
+}
+
+.run-forest{
+    margin:15px;
+    border:1px solid #DE00A5;
+    background-color:#DE00A5;
+}
+
+.mItem:hover {
+    background-color: #007BFF !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+#loader {
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:9999;
+}
+
+.progress-bar {
+    background-color:#DE00A5;
+}
+
+#conf-mat {
+    width:40%;
+    height:40%;
+}
+
+#cm-1-cell, #cm-4-cell {
+    width:13.3%
+    text-align:center;
+    background-color:#DE00A5;
+    color:white;
+    border: 1px solid black;
+}
+
+#cm-2-cell, #cm-3-cell {
+    width:13.3%
+    text-align:center;
+    background-color:white;
+    color:black;
+    border: 1px solid black;
+}
+
+.cm-title-cell {
+    width:13.3%
+    text-align: center;
+}
+
+.cm-title-left {
+    width:13.3%
+    text-align: right;
+}

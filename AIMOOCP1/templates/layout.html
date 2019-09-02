@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Intro to Random Forrest">
+        <meta name="author" content="Alan Davies">
+
+        <title>Machine learning example</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{{ url_for('static', filename='css/simple-sidebar.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/AIMOOC.css') }}" rel="stylesheet">
+
+        <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <img class="logo-image" src="{{ url_for('static', filename = 'images/logo.png') }}">
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" onclick="animationManager.showAboutBox();" href="#">About <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="container-fluid">
+                   {% block mainText %}
+                   {% endblock %}
+                </div>
+            </div>
+
+            <!-- about info -->
+            <div id="page-mask"></div>
+            <div id="about-box">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/alan.PNG') }}" width="600px" />
+                    <div class="card-body">
+                        <h5 class="card-title">About</h5>
+                        <p class="card-text">This brief introduction to Random Forests was made by <br /><a href="https://alandavies.netlify.com/" target="_blank">Dr. Alan Davies</a> Lecturer
+                            of Health Data Science, School of Health Sciences, University of Manchester, 2019</p>
+                        <button type="button" class="btn btn-primary btn-lg next-button-about" onclick="animationManager.closeAbout();">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/animation_manager.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+        <!-- Menu Toggle Script -->
+        <script>
+            $SCRIPT_ROOT = {{ request.script_root | tojson | safe }};
+            $(document).ready(function () {
+                initializeMain();
+            });
+         </script>
+    </body>
+</html>

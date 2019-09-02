@@ -1,0 +1,46 @@
+
+<!-- Inherit from layout page -->
+{% extends "layout.html" %}
+
+<!-- Text for main block -->
+{% block mainText %}
+
+<!-- Page Content -->
+<p>
+    This table shows the first 10 records (rows) from the <strong>breast cancer dataset</strong> that comes
+    with Python's machine learning library (sklearn). This data contains <strong>569</strong> samples (records)
+    in total, with <strong>357</strong> labeled as having cancer and <strong>212</strong> labeled as no-cancer.
+</p>
+
+{% for table in tables %}
+    {{ table|safe }}
+{% endfor %}
+
+<p>
+    <br />
+    We can see the <strong>features</strong> mostly include information on the average (mean) values of
+    various breast tumor measurements which include:
+    <ul>
+        <li><code>mean radius</code></li>
+        <li><code>mean texture</code></li>
+        <li><code>mean perimeter</code></li>
+        <li><code>mean area</code></li>
+        <li><code>mean smoothness</code></li>
+        <li><code>mean compactness</code></li>
+        <li><code>mean concavity</code></li>
+        <li><code>...</code></li>
+    </ul>
+    We also have a <strong>label</strong>
+    <ul>
+        <li><code>target</code> this has been set to a <strong>binary</strong> value, either 0 meaning benign (no cancer) or malignant (cancer).</li>
+    </ul>
+    Try scrolling the table to last column to see the label (<code>target</code>) we will use for classification.
+    We want to know if any of the features above are related to the findings indicating the presence of cancer or not.
+</p>
+
+<form action="{{ url_for('showRF') }}" method="POST">
+    <input type="submit" class="btn btn-primary btn-lg next-button" value="Next" />
+</form>
+
+<!-- /#page-content-wrapper -->
+{% endblock %}
